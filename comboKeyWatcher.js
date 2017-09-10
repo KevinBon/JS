@@ -41,7 +41,7 @@ var comboKeyWatcher = function(_window) {
         // Right order?
         if (!(elem.refObj.name in alreadyHandled) && elem.position === elem.refObj.currentIndex) {
           if (elem.refObj.currentIndex === elem.refObj.maxIndex) { // Sequence finished
-            elem.refObj.callback.call(public);
+            elem.refObj.callback.call(result);
           } else {
             skippable.push(elem.refObj.name);
             elem.refObj.currentIndex +=1;
@@ -242,5 +242,5 @@ comboKeyWatcher
   // With String (will only be triggered once)
   .watch(['Ctrl', 'a'], 'allText', function() {
     console.log('allText');
-    comboKeyWatcher.stopWatch('allText');
+    this.stopWatch('allText');
   });
